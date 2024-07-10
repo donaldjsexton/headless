@@ -7,8 +7,7 @@ const HomeTitle = () => {
         Read latest collection
       </h2>
       <p className="mt-5 text-base font-normal leading-7 text-gray-500">
-        Create custom landing pages with Rareblocks that converts more visitors
-        than any website.
+        Exploring Boundless Horizons: Unveil Knowledge, Inspire Growth
       </p>
     </div>
   );

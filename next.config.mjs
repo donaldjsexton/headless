@@ -6,6 +6,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'landingfoliocom.imgix.net',
       },
+      {
+        protocol: 'https',
+        hostname: 'loading.io',
+      },
+      {
+        protocol: 'https',
+        hostname: 'snehaltayde.com',
+      },
     ],
   },
 };

@@ -1,0 +1,14 @@
+Function To Expose Featured Image URL To REST API
+
+function add_featured_image_url_to_posts($data, $post, $context) {
+    $featured_image_id = $data->data['featured_media'];
+    $featured_image_url = wp_get_attachment_image_src($featured_image_id, 'full');
+
+    if ($featured_image_url) {
+        $data->data['featured_image_url'] = $featured_image_url[0];
+    }
+
+    return $data;
+}
+
+add_filter('rest_prepare_post', 'add_featured_image_url_to_posts', 10, 3);

@@ -1,18 +1,21 @@
+import Link from 'next/link';
 import React from 'react';
-
+import Image from 'next/image';
 const Header = () => {
   return (
-    <header className="py-4 bg-white" x-data="{expanded: false}">
+    <header className="py-4 bg-white border-b-4" x-data="{expanded: false}">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           <div className="flex-shrink-0">
-            <a href="#" title="" className="flex">
-              <img
+            <Link href="/" title="" className="flex">
+              <Image
+                width={150}
+                height={180}
                 className=""
-                src="https://cdn.rareblocks.xyz/collection/clarity/images/logo.svg"
+                src="https://snehaltayde.com/wp-content/uploads/2024/07/Screenshot_4.png"
                 alt=""
               />
-            </a>
+            </Link>
           </div>
 
           <div className="flex lg:hidden">
@@ -26,9 +29,9 @@ const Header = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="1.5"
                     d="M4 6h16M4 12h16M4 18h16"
                   />
                 </svg>
@@ -43,9 +46,9 @@ const Header = () => {
                   stroke="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
                     d="M6 18L18 6M6 6l12 12"
                   />
                 </svg>
@@ -54,45 +57,41 @@ const Header = () => {
           </div>
 
           <nav className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-12">
-            <a
+            <Link
               href="#"
               title=""
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              {' '}
-              Experts{' '}
-            </a>
+              Life
+            </Link>
 
-            <a
+            <Link
               href="#"
               title=""
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              {' '}
-              Community Groups{' '}
-            </a>
+              Code
+            </Link>
 
-            <a
+            <Link
               href="#"
               title=""
               className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
             >
-              {' '}
-              Support{' '}
-            </a>
+              Design
+            </Link>
+
+            <Link
+              href="#"
+              title=""
+              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+            >
+              Future & Tech
+            </Link>
           </nav>
 
           <nav className="hidden lg:flex lg:items-center lg:justify-end lg:space-x-10">
-            <a
-              href="#"
-              title=""
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              {' '}
-              Login{' '}
-            </a>
-
-            <a
+            <Link
               href="#"
               title=""
               className="
@@ -117,12 +116,12 @@ const Header = () => {
                 "
               role="button"
             >
-              Join community
-            </a>
+              Share Your Story
+            </Link>
           </nav>
         </div>
 
-        <nav className="hidden" x-show="expanded" x-collapse>
+        <nav className="hidden">
           <div className="px-1 py-8">
             <div className="grid gap-y-7">
               <a
