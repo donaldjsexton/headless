@@ -1,7 +1,20 @@
+'use client';
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
+import getCategories from '@/actions/wp.actions';
+import { useEffect, useState } from 'react';
 const Header = () => {
+  const [categories, setCategories] = useState([]);
+  const getAllCategories = async () => {
+    const data = await getCategories();
+    console.log(data);
+    setCategories(data);
+  };
+
+  useEffect(() => {
+    getAllCategories();
+  }, []);
   return (
     <header className="py-4 bg-white border-b-4" x-data="{expanded: false}">
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -57,37 +70,17 @@ const Header = () => {
           </div>
 
           <nav className="hidden lg:flex lg:items-center lg:justify-center lg:space-x-12">
-            <Link
-              href="#"
-              title=""
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              Life
-            </Link>
-
-            <Link
-              href="#"
-              title=""
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              Code
-            </Link>
-
-            <Link
-              href="#"
-              title=""
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              Design
-            </Link>
-
-            <Link
-              href="#"
-              title=""
-              className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
-            >
-              Future & Tech
-            </Link>
+            {categories &&
+              categories.map((category) => (
+                <Link
+                  key={categories.id}
+                  href={`/category/${category.slug}`}
+                  title=""
+                  className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"
+                >
+                  {category.name}
+                </Link>
+              ))}
           </nav>
 
           <nav className="hidden lg:flex lg:items-center lg:justify-end lg:space-x-10">

@@ -3,7 +3,9 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { getPost } from '@/actions/wp.actions';
 import DOMPurify from 'dompurify';
-import decodeHTMLEntities from '@/utils/lib';
+// import { decodeHTMLEntities } from '@/utils/lib';
+// import { formatDate } from '@/utils/lib';
+import { decodeHTMLEntities, formatDate } from '@/utils/lib';
 import Image from 'next/image';
 const Page = ({ params }) => {
   const { slug } = params;
@@ -11,39 +13,6 @@ const Page = ({ params }) => {
   const [post, setPost] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-
-  function formatDate(dateString) {
-    // Parse the date string into a Date object
-    const date = new Date(dateString);
-
-    // Create an array of month names
-    const months = [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July',
-      'August',
-      'September',
-      'October',
-      'November',
-      'December',
-    ];
-
-    // Get the month name
-    const month = months[date.getMonth()];
-
-    // Get the day of the month
-    const day = date.getDate();
-
-    // Get the full year
-    const year = date.getFullYear();
-
-    // Format the date string
-    return `${month} ${day}, ${year}`;
-  }
 
   // Example usage
 

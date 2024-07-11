@@ -1,33 +1,26 @@
 'use client';
-import { getPosts, getMediaURL } from '@/actions/wp.actions';
+import { getPostsByCategoryName } from '@/actions/wp.actions';
 import { useEffect, useState } from 'react';
 import Postgrid from '@/components/Postgrid';
 import HomeTitle from '@/components/HomeTitle';
-export default function Home() {
+export default function Page({ params }) {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
-  const allPosts = async () => {
+  const displayPosts = async () => {
     setLoading(true);
-    const res = await getPosts(page);
-    // console.log(res);
-    setPosts(res.posts);
+    const data = await getPostsByCategoryName(params.catslug, page);
+    console.log(data);
+    setPosts(data.posts);
+    setTotalPages(data.totalPages);
     setLoading(false);
-
-    const totalPages = res?.totalPages;
-    setTotalPages(totalPages);
-  };
-
-  const allMedia = async (id) => {
-    const data = await getMediaURL(id);
-    return data;
   };
 
   useEffect(() => {
-    allPosts();
-  }, [page]);
+    displayPosts();
+  }, [page, params]);
 
   const handleNextPage = () => {
     if (page < totalPages) {
@@ -48,15 +41,8 @@ export default function Home() {
           <div className="grid max-w-md grid-cols-1 mx-auto mt-12 sm:mt-16 md:grid-cols-3 gap-y-12 md:gap-x-8 lg:gap-x-16 md:max-w-none">
             {loading ? (
               <p>Loading...</p>
-            ) : posts.length ? (
-              posts.map((post) => (
-                <Postgrid
-                  key={post.id}
-                  post={post}
-                  featured_media={post.featured_media}
-                  allMedia={allMedia}
-                />
-              ))
+            ) : posts?.length ? (
+              posts.map((post) => <Postgrid key={post.id} post={post} />)
             ) : (
               <p>No Posts</p>
             )}
