@@ -1,5 +1,5 @@
 'use client';
-import { getPosts, getMediaURL } from '@/actions/wp.actions';
+import { getPosts } from '@/actions/wp.actions';
 import { useEffect, useState } from 'react';
 import Postgrid from '@/components/Postgrid';
 import HomeTitle from '@/components/HomeTitle';

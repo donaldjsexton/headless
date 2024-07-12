@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import React from 'react';
 import Image from 'next/image';
-import getCategories from '@/actions/wp.actions';
+import { getCategories } from '@/actions/wp.actions';
 import { useEffect, useState } from 'react';
 const Header = () => {
   const [categories, setCategories] = useState([]);
@@ -73,7 +73,7 @@ const Header = () => {
             {categories &&
               categories.map((category) => (
                 <Link
-                  key={categories.id}
+                  key={category.id}
                   href={`/category/${category.slug}`}
                   title=""
                   className="text-base font-medium text-gray-900 transition-all duration-200 rounded focus:outline-none font-pj hover:text-opacity-50 focus:ring-1 focus:ring-gray-900 focus:ring-offset-2"

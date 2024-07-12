@@ -1,4 +1,5 @@
 'use server';
+
 export async function getPosts(page, perPage = 12) {
   const res = await fetch(
     `https://snehaltayde.com/wp-json/wp/v2/posts?page=${page}&per_page=${perPage}`
@@ -46,8 +47,33 @@ export async function getPostsByCategoryName(categoryName, page, perPage = 12) {
   }
 }
 
-export default async function getCategories() {
+export async function getCategories() {
   const res = await fetch(`https://snehaltayde.com/wp-json/wp/v2/categories`);
   const categories = await res.json();
   return categories;
+}
+
+export async function getCommentss(postId) {
+  const res = await fetch(
+    `https://snehaltayde.com/wp-json/wp/v2/comments?post=${postId}`
+  );
+  const comments = await res.json();
+  return comments;
+}
+
+export async function postComment(postId, name, email, comment) {
+  const res = await fetch(`https://snehaltayde.com/wp-json/wp/v2/comments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      post: postId,
+      author_name: name,
+      author_email: email,
+      content: comment,
+    }),
+  });
+  const comments = await res.json();
+  return comments;
 }
