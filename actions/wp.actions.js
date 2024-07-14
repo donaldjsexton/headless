@@ -61,19 +61,21 @@ export async function getCommentss(postId) {
   return comments;
 }
 
-export async function postComment(postId, name, email, comment) {
+export async function postComment(data) {
   const res = await fetch(`https://snehaltayde.com/wp-json/wp/v2/comments`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
+
     body: JSON.stringify({
-      post: postId,
-      author_name: name,
-      author_email: email,
-      content: comment,
+      post: data.post,
+      author_name: data.author_name,
+      author_email: data.author_email,
+      content: data.content,
     }),
   });
   const comments = await res.json();
+  console.log(comments);
   return comments;
 }
