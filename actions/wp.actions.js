@@ -2,7 +2,7 @@
 
 export async function getPosts(page, perPage = 12) {
   const res = await fetch(
-    `https://snehaltayde.com/wp-json/wp/v2/posts?page=${page}&per_page=${perPage}`
+    `https://donsex.dreamhosters.com/wp-json/wp/v2/posts?page=${page}&per_page=${perPage}`
   );
   const posts = await res.json();
   //return posts;
@@ -12,7 +12,7 @@ export async function getPosts(page, perPage = 12) {
 
 export async function getPost(slug) {
   const res = await fetch(
-    `https://snehaltayde.com//wp-json/wp/v2/posts?slug=${slug}`
+    `https://donsex.dreamhosters.com//wp-json/wp/v2/posts?slug=${slug}`
   );
   const post = await res.json();
   return post;
@@ -22,7 +22,7 @@ export async function getPostsByCategoryName(categoryName, page, perPage = 12) {
   try {
     // Get the category by slug
     const categoryResponse = await fetch(
-      `https://snehaltayde.com/wp-json/wp/v2/categories?slug=${categoryName}`
+      `https://donsex.dreamhosters.com/wp-json/wp/v2/categories?slug=${categoryName}`
     );
     const categories = await categoryResponse.json();
 
@@ -36,7 +36,7 @@ export async function getPostsByCategoryName(categoryName, page, perPage = 12) {
 
     // Get posts by category ID
     const postsResponse = await fetch(
-      `https://snehaltayde.com/wp-json/wp/v2/posts?categories=${categoryId}&page=${page}&per_page=${perPage}`
+      `https://donsex.dreamhosters.com/wp-json/wp/v2/posts?categories=${categoryId}&page=${page}&per_page=${perPage}`
     );
     const posts = await postsResponse.json();
     const totalPages = postsResponse.headers.get('X-WP-TotalPages');
@@ -48,21 +48,21 @@ export async function getPostsByCategoryName(categoryName, page, perPage = 12) {
 }
 
 export async function getCategories() {
-  const res = await fetch(`https://snehaltayde.com/wp-json/wp/v2/categories`);
+  const res = await fetch(`https://donsex.dreamhosters.com/wp-json/wp/v2/categories`);
   const categories = await res.json();
   return categories;
 }
 
 export async function getCommentss(postId) {
   const res = await fetch(
-    `https://snehaltayde.com/wp-json/wp/v2/comments?post=${postId}`
+    `https://donsex.dreamhosters.com/wp-json/wp/v2/comments?post=${postId}`
   );
   const comments = await res.json();
   return comments;
 }
 
 export async function postComment(data) {
-  const res = await fetch(`https://snehaltayde.com/wp-json/wp/v2/comments`, {
+  const res = await fetch(`https://donsex.dreamhosters.com/wp-json/wp/v2/comments`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

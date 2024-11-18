@@ -3,11 +3,6 @@ import CommentList from './CommentList';
 import { postComment } from '@/actions/wp.actions';
 import { useState } from 'react';
 const Comments = ({ post }) => {
-  // {"post": "846",
-  //     "author_name": "Snehal",
-  //     "author_email": "snehal.tayde13@gmail.com",
-  //     "content": "Test new 2"
-  //   }
 
   const [content, setContent] = useState('');
   const [author_name, setAuthorName] = useState('Snehal');
