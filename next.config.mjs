@@ -4,7 +4,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'donsex.dreamhosters.com/graphql',
+        hostname: 'donsex.dreamhosters.com/',
       },
     ],
   },
