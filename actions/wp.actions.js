@@ -12,7 +12,7 @@ export async function getPosts(page, perPage = 12) {
 
 export async function getPost(slug) {
   const res = await fetch(
-    `https://donsex.dreamhosters.com//wp-json/wp/v2/posts?slug=${slug}`
+    `https://donsex.dreamhosters.com/wp-json/wp/v2/posts?slug=${slug}`
   );
   const post = await res.json();
   return post;
