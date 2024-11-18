@@ -4,10 +4,10 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'donsex.dreamhosters.com/',
+        hostname: 'donsex.dreamhosters.com', 
       },
     ],
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
