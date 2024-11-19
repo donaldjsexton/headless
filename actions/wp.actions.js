@@ -39,7 +39,7 @@ export async function getPostsByCategoryName(categoryName, page, perPage = 12) {
       `https://donsex.dreamhosters.com/wp-json/wp/v2/posts?categories=${categoryId}&page=${page}&per_page=${perPage}`
     );
     const posts = await postsResponse.json();
-    const totalPages = postsResponse.headers.get('X-WP-TotalPages');
+  //  const totalPages = postsResponse.headers.get('X-WP-TotalPages');
     return { posts, totalPages: parseInt(totalPages, 10) };
   } catch (error) {
     console.error('Error fetching posts:', error);
